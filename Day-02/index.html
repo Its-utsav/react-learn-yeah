@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+    ></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+  </head>
+  <body class="h-full w-full">
+    <!-- <h1 id="root">Hello World</h1> -->
+    <!-- <img src="" alt="" onerror=""> -->
+    <div id="root" class="h-full w-full"></div>
+    <script type="text/babel">
+      function MyApp() {
+        // Parent Components
+        function someValue(val) {
+          console.log("Values . ", val);
+        }
+        return <Search doSomething={someValue} b={10} />; // someValue -> Props
+      }
+
+      function Search({ doSomething, b }) {
+        // someValue  recived here -> but here i called as abc
+        // child component
+        function handleInput(e) {
+          // e -> event
+
+          // e.target.value += "10";
+          doSomething(e.target.value);
+        }
+        return (
+          <>
+            {b}
+            <input
+              type="text"
+              placeholder="write something"
+              onInput={handleInput}
+            />
+          </>
+        );
+      }
+      const continer = document.getElementById("root");
+      const root = ReactDOM.createRoot(continer);
+      root.render(<MyApp />);
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
