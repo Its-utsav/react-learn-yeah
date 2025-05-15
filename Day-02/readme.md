@@ -109,6 +109,7 @@ function MyComponent() {
 ## Components
 - In react we write function that return some UI 
 - Components first letter must start with Uppercase, due to differentiate between react components and html element (html is case insensitive <P> </P> and <p> </p> will treated as same )
+- If Component start with lower case than react treat as `HTML` Tag not Component that why we always start components name with upper case letter
 - We should return only one element from component , if we want to return more then we should use parent tag or `<> </>` which are known as fragments 
 
 **In any react project we have to think about all possible components.**
@@ -219,12 +220,22 @@ function Search(abc) {
 - In react application react create Virtual DOM which is based on Original Dom -> Virtual DOM kind of object that store the all element in page
 - It continuedly checking different between Original DOM and Virtual DOM known as Diffing algorithm 
 - Only difference part it update to original DOM , it prevent unnecessary update and performance optimization
+- React Create Two Virtual DOM during the rendering process
+1. Initial Virtual DOM
+   1. Lightweight copy of actual DOM
+2. Updated Virtual DOM
+   1. When Component Updates than React create another Virtual DOM with updated state.
+   2. And react compare the new Virtual DOM With previous one using Reconciliation .
+   3. after comparison Updated Virtual DOM Became new Virtual DOM 
+![Virtual DOM simple Woking](VDOM.png)
+
+
 <!-- 
 ### Working of V-DOM
   1. When state changes, React creates a new Virtual DOM tree.
   2. The new Virtual DOM is compared with the previous Virtual DOM (Diffing process).
- 3. React calculates the differences between the two trees.
-  4. It updates only the nodes of the actual DOM that have changed to reflect the new state, rather than redrawing the entire DOM.
+ 1. React calculates the differences between the two trees.
+  2. It updates only the nodes of the actual DOM that have changed to reflect the new state, rather than redrawing the entire DOM.
 ### Why V-DOM ?
 - Performance optimization
 
