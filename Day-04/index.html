@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sum of Two Numbers</title>
+  </head>
+  <body>
+    <div>
+      <input
+        type="number"
+        placeholder="Enter Number 1"
+        name="first Numebr"
+        id="num1"
+      />+
+      <input
+        type="number"
+        placeholder="Enter Number 2"
+        name="Second Numebr"
+        id="num2"
+      />
+      <button id="btn" onclick="add()" type="button">Add</button>
+      <br />
+      <span>Result <span id="res"></span></span>
+    </div>
+    <script>
+      function useState(value) {
+        let val = value;
+        function setValue(newValue) {
+          document.getElementById("res").innerText = newValue;
+        }
+        return [value, setValue];
+      }
+      const [value, setValue] = useState(0);
+      function add() {
+        const num1 = document.getElementById("num1").value;
+        const num2 = document.getElementById("num2").value;
+        const ans = Number(num1) + Number(num2);
+        const res = `${num1} + ${num2} = ${ans}`;
+        setValue(res);
+      }
+    </script>
+  </body>
+</html>
