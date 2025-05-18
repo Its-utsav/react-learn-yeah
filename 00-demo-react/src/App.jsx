@@ -1,4 +1,4 @@
-import { useState } from "react";
+import Day06 from "./Day06";
 
 const Button = ({ label = "", onClick = () => {} } = {}) => {
   return (
@@ -20,23 +20,26 @@ const Button = ({ label = "", onClick = () => {} } = {}) => {
     </button>
   );
 };
-
 const App = () => {
-  const [count, setCount] = useState(0);
-  const handleIncrement = () => {
-    setCount(count + 1);
-  };
-  const handleDecrement = () => {
-    setCount(count - 1);
-  };
-  return (
-    <div>
-      <Button label="+" onClick={handleIncrement} />
-      <span>{count}</span>
-      <Button label="-" onClick={handleDecrement} />
-    </div>
-  );
+  return <Day06 />;
 };
+
+// const App = () => {
+//   const [count, setCount] = useState(0);
+//   const handleIncrement = () => {
+//     setCount(count + 1);
+//   };
+//   const handleDecrement = () => {
+//     setCount(count - 1);
+//   };
+//   return (
+//     <div>
+//       <Button label="+" onClick={handleIncrement} />
+//       <span>{count}</span>
+//       <Button label="-" onClick={handleDecrement} />
+//     </div>
+//   );
+// };
 
 // const Sum = () => {
 //   const [n1, setN1] = useState(0); // default value for Input box
